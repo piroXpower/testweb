@@ -29,8 +29,10 @@ export const certificateVerifications = pgTable("certificate_verifications", {
 
 export const consultationLeads = pgTable("consultation_leads", {
   id: serial("id").primaryKey(),
-  name: text("name").notNull(),
-  phone: text("phone").notNull(),
+  fullName: text("full_name").notNull(),
+  phoneNumber: text("phone_number").notNull(),
+  email: text("email"),
+  dob: timestamp("dob"),
   service: text("service"),
   createdAt: timestamp("created_at").defaultNow().notNull(),
 });
