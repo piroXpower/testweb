@@ -7,6 +7,7 @@ export const goldSchemeEnrollments = pgTable("gold_scheme_enrollments", {
   email: text("email"),
   schemeType: text("scheme_type").notNull(),
   monthlyAmount: integer("monthly_amount").notNull(),
+  duration: text("duration"),
   createdAt: timestamp("created_at").defaultNow().notNull(),
 });
 
