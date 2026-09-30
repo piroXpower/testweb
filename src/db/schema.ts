@@ -33,6 +33,7 @@ export const consultationLeads = pgTable("consultation_leads", {
   phoneNumber: text("phone_number").notNull(),
   email: text("email"),
   dob: timestamp("dob"),
+  tob: text("tob"),
   service: text("service"),
   createdAt: timestamp("created_at").defaultNow().notNull(),
 });
