@@ -1,12 +1,12 @@
-import { pgTable, serial, text, boolean, timestamp } from "drizzle-orm/pg-core";
+import { pgTable, serial, text, boolean, timestamp, numeric } from "drizzle-orm/pg-core";
 
 export const goldSchemeEnrollments = pgTable("gold_scheme_enrollments", {
   id: serial("id").primaryKey(),
-  name: text("name").notNull(),
-  phone: text("phone").notNull(),
+  fullName: text("full_name").notNull(),
+  phoneNumber: text("phone_number").notNull(),
   email: text("email"),
   schemeType: text("scheme_type").notNull(),
-  monthlyAmount: text("monthly_amount").notNull(),
+  monthlyAmount: numeric("monthly_amount").notNull(),
   createdAt: timestamp("created_at").defaultNow().notNull(),
 });
 
