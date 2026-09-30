@@ -43,8 +43,10 @@ export const consultationLeads = pgTable("consultation_leads", {
 
 export const contactInquiries = pgTable("contact_inquiries", {
   id: serial("id").primaryKey(),
-  name: text("name").notNull(),
-  email: text("email").notNull(),
+  fullName: text("full_name").notNull(),
+  phoneNumber: text("phone_number"),
+  email: text("email"),
+  subject: text("subject"),
   message: text("message").notNull(),
   createdAt: timestamp("created_at").defaultNow().notNull(),
 });
