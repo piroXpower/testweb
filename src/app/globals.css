@@ -100,3 +100,16 @@
 .hindi-text {
   font-family: 'Noto Sans Devanagari', sans-serif;
 }
+
+
+/* Fix card text legibility and contrast */
+.bg-white, [class*="bg-gray-"], [class*="bg-slate-"] {
+  color: #1f2937 !important;
+}
+.bg-white p, .bg-white span, [class*="bg-gray-"] p {
+  color: #4b5563 !important;
+}
+.bg-white h2, .bg-white h3, [class*="bg-gray-"] h2, [class*="bg-gray-"] h3 {
+  color: #111827 !important;
+  font-weight: 700 !important;
+}
