@@ -137,3 +137,16 @@ export const contactInquiries = pgTable('contact_inquiries', {
   status: text('status').default('NEW'),
   createdAt: timestamp('created_at').defaultNow()
 });
+
+
+import { pgTable, serial, text, boolean, timestamp } from "drizzle-orm/pg-core";
+
+export const jewelleryItems = pgTable("jewellery_items", {
+  id: serial("id").primaryKey(),
+  title: text("title").notNull(),
+  category: text("category").notNull(),
+  price: text("price"),
+  imageUrl: text("image_url"),
+  isVisible: boolean("is_visible").default(true).notNull(),
+  createdAt: timestamp("created_at").defaultNow().notNull(),
+});
