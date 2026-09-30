@@ -48,5 +48,6 @@ export const contactInquiries = pgTable("contact_inquiries", {
   email: text("email"),
   subject: text("subject"),
   message: text("message").notNull(),
+  status: text("status"),
   createdAt: timestamp("created_at").defaultNow().notNull(),
 });
