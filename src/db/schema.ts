@@ -34,6 +34,7 @@ export const consultationLeads = pgTable("consultation_leads", {
   email: text("email"),
   dob: timestamp("dob"),
   tob: text("tob"),
+  pob: text("pob"),
   service: text("service"),
   createdAt: timestamp("created_at").defaultNow().notNull(),
 });
