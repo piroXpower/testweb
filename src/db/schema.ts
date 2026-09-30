@@ -150,3 +150,14 @@ export const jewelleryItems = pgTable("jewellery_items", {
   isVisible: boolean("is_visible").default(true).notNull(),
   createdAt: timestamp("created_at").defaultNow().notNull(),
 });
+
+
+export const jewelleryItems = pgTable("jewellery_items", {
+  id: serial("id").primaryKey(),
+  title: text("title").notNull(),
+  category: text("category").notNull(),
+  price: text("price"),
+  imageUrl: text("image_url"),
+  isVisible: boolean("is_visible").default(true).notNull(),
+  createdAt: timestamp("created_at").defaultNow().notNull(),
+});
