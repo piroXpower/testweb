@@ -36,6 +36,7 @@ export const consultationLeads = pgTable("consultation_leads", {
   tob: text("tob"),
   pob: text("pob"),
   objective: text("objective"),
+  status: text("status"),
   service: text("service"),
   createdAt: timestamp("created_at").defaultNow().notNull(),
 });
