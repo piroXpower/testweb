@@ -5,34 +5,23 @@ import { goldSchemeEnrollments } from '@/db/schema';
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json();
-    const { fullName, phoneNumber, email, monthlyAmount, duration } = body;
+    const { fullName, phoneNumber, email, schemeType, monthlyAmount } = body;
 
-    if (!fullName || !phoneNumber || !monthlyAmount || !duration) {
-      return NextResponse.json(
-        { error: 'Missing required enrollment parameters' },
-        { status: 400 }
-      );
+    if (!fullName || !phoneNumber || !schemeType || !monthlyAmount) {
+      return NextResponse.json({ error: 'Missing required fields' }, { status: 400 });
     }
 
     await db.insert(goldSchemeEnrollments).values({
       fullName,
       phoneNumber,
       email: email || null,
-      schemeType: 'Swarna Bachat Yojana (11+1)',
+      schemeType,
       monthlyAmount: Number(monthlyAmount),
-      duration: Number(duration),
-      status: 'INQUIRY'
     });
 
-    return NextResponse.json(
-      { message: 'Gold scheme enrollment registered successfully' },
-      { status: 201 }
-    );
+    return NextResponse.json({ success: true, message: 'Successfully enrolled' });
   } catch (error) {
-    console.error('Error in gold scheme registration:', error);
-    return NextResponse.json(
-      { error: 'Internal server error' },
-      { status: 500 }
-    );
+    console.error('Gold scheme error:', error);
+    return NextResponse.json({ error: 'Failed to process enrollment' }, { status: 500 });
   }
 }
